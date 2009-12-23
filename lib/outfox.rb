@@ -1,0 +1,7 @@
+require 'rubygems'
+require 'pdf/reader'
+require 'active_support'
+require 'outfox/messages'
+require 'outfox/error_messages'
+require 'outfox/parser'
+require 'outfox/receivers/wachovia_checking_statement'

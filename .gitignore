@@ -1,0 +1,12 @@
+## MAC OS
+.DS_Store
+
+## PROJECT::GENERAL
+coverage
+rdoc
+pkg
+
+## PROJECT::SPECIFIC
+doc/outfox.taskpaper
+spec/config/account_info.yml
+spec/fixtures/*_statement.pdf

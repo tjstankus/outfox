@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+
+$:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
+require 'outfox'
+require 'optparse'
+
+help = <<HELP
+
+Outfox parses pdf-formatted bank statements and produces OFX documents which
+are usable with various personal finance applications, such as wesabe.com. 
+Initially, only Wachovia Bank checking statements are supported.
+
+Command line usage:
+  outfox <bank name> <account type> <path to pdf bank statement> # -> ofx file
+
+HELP
+
+OptionParser.new do |opts|
+  opts.banner = help  
+end.parse!
+
+case ARGV.size
+  when 0,1,2: puts "Run `outfox --help` for assistance."
+end
+
+if ARGV.size == 3
+  bank_name = ARGV[0]
+  account_type = ARGV[1]
+  filepath = ARGV[2]
+  Outfox::Parser.new(bank_name, account_type).parse(STDOUT, filepath)
+end
