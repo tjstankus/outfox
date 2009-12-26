@@ -5,33 +5,35 @@ describe Outfox::Receivers::WachoviaCheckingStatement do
     @config = YAML.load_file(File.join(CONFIG_PATH, 'account_info.yml'))
   end
 
-  describe "config" do
-    it "should have a bank name" do
-      @config['bank_name'].should_not be_nil
-    end
-
-    it "should have an account type" do
-      @config['account_type'].should_not be_nil
-    end
-
-    it "should have an account number" do
-      @config['account_number'].should_not be_nil
-    end
-  end
-
   describe "account info" do
-    before(:each) do
+    before(:all) do
       @parser = Outfox::Parser.new(@config['bank_name'], @config['account_type'])
-      @receiver = @parser.receiver
-      @messenger = StringIO.new
+      @statement = @parser.receiver
       file_path = [@config['bank_name'], @config['account_type'], 'statement.pdf'].join('_')
       fixture_path = File.join(FIXTURES_PATH, file_path)
-      @parser.parse(@messenger, fixture_path)
+      @parser.parse(StringIO.new, fixture_path)
     end
 
     it "should have account number" do
-      @receiver.account_number.should == @config['account_number']
+      @statement.account_number.should == @config['account_number']
     end
+    
+    it "should have bank routing number" do
+      @statement.bank_routing_number.should be_an_instance_of(String)
+    end
+    
+    it "should have account type" do
+      @statement.account_type.should be_an_instance_of(String)
+    end
+    
+    it "should have a start date" do
+      @statement.start_date.should == DateTime.parse(@config['start_date'])
+    end
+    
+    it "should have an end date" do
+      @statement.end_date.should == DateTime.parse(@config['end_date'])
+    end
+    
   end
 
 end

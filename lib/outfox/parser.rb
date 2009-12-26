@@ -1,5 +1,6 @@
 module Outfox
   class Parser
+    
     attr_reader :receiver
     
     def initialize(bank, account_type)

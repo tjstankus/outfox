@@ -1,3 +1,8 @@
+# This data serves several purposes: config, spec expectation data, and a way to 
+# keep sensitive, personal data out of the public repository
+
 bank_name: 'wachovia'
 account_type: 'checking'
-account_number: '1010101234567'
+account_number: '1010101234567' # replace with the account number in your statement fixture
+start_date: '9/29/2009' # replace with the start date in your statement fixture
+end_date: '10/28/2009' # replace with the end date in your statement fixture
