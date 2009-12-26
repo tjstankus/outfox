@@ -34,6 +34,35 @@ describe Outfox::Receivers::WachoviaCheckingStatement do
       @statement.end_date.should == DateTime.parse(@config['end_date'])
     end
     
+    it "should have transactions"
+  end
+  
+  describe "#start_of_transaction?" do
+    before(:all) do
+      @statement = Outfox::Receivers::WachoviaCheckingStatement.new
+    end
+    
+    it "should start transaction for month/" do
+      (1..12).each do |i|
+        @statement.start_of_transaction?(["#{i}/"]).should be_true
+      end
+    end
+    
+    it "should not start transaction for non-numeric text" do
+      @statement.start_of_transaction?(['foo/']).should be_false
+    end
+    
+    it "should not start transaction for string without slash" do
+      @statement.start_of_transaction?(['foo']).should be_false
+    end
+    
+    it "should not start transaction for non-month number" do
+      @statement.start_of_transaction?(['13/']).should be_false
+    end
+    
+    it "should not start transaction for 0" do
+      @statement.start_of_transaction?(['0/']).should be_false
+    end
   end
 
 end

@@ -1,6 +1,8 @@
 Outfox README
 =============
 
+**THIS IS A WORK IN PROGRESS AND IS NOT YET USABLE**
+
 Outfox is a command line application for parsing bank statements in pdf format and producing ofx files that are usable with financial applications such as wesabe.com. The impetus for this application is that some banks (cough *Wachovia* cough) provide historical statement data in pdf format, which of course is human-readable, but almost useless beyond that. I wanted to upload a couple years worth of historical statement data into wesabe, and all I had was these pdfs.
 
 At this point, the application only supports Wachovia checking statements. At some point, it'd be nice to support other banks and statement types, but I make no promises.

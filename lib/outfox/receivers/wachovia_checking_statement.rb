@@ -43,6 +43,15 @@ module Outfox
         @end_date || start_and_end_dates[1]
       end
       
+      def start_of_transaction?(line)
+        line[0].include?('/') && starts_with_month?(line[0])
+      end
+      
+      def starts_with_month?(text)
+        raise "Invalid parameter, must include '/'" unless text.include?('/')
+        (1..12).include?(text[0, text.index('/')].to_i)
+      end
+      
       private
       
       def start_and_end_dates
