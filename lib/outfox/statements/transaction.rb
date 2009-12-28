@@ -34,11 +34,7 @@ module Outfox
       end
 
       def amount
-        data[1].gsub(',','').insert(0, amount_operator)
-      end
-
-      def amount_operator
-        txn_type == :credit ? '+' : '-'
+        data[1].gsub(',','').to_f
       end
       
       def info_data_includes_date?

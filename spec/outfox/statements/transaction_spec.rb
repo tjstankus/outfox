@@ -22,7 +22,7 @@ describe Outfox::Statements::Transaction do
     end
     
     it "should have correct amount" do
-      @txn.amount.should == '+4582.50'
+      @txn.amount.should == 4582.50
     end
     
     it "should have correct name" do

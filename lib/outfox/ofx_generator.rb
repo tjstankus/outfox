@@ -22,6 +22,15 @@ module Outfox
       datetime.strftime('%Y%m%d%H%M%S')
     end
     
+    def amount_for_ofx(transaction)
+      amt = transaction.amount.to_s.insert(0, transaction.txn_type == :credit ? '+' : '-')
+      missing_ones_cents_digit?(amt) ? amt + '0' : amt
+    end
+    
+    def missing_ones_cents_digit?(amount_str)
+      amount_str.slice(-2..-1).include?('.')
+    end
+    
     def ofx
       ''.tap do |buf|
         buf << header
