@@ -1,5 +1,5 @@
 module Outfox
-  module Receivers
+  module Statements
     class Statement
       
       [ :bank_routing_number, 

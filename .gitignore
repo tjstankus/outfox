@@ -10,3 +10,4 @@ pkg
 doc/outfox.taskpaper
 spec/config/account_info.yml
 spec/fixtures/*_statement.pdf
+tmp

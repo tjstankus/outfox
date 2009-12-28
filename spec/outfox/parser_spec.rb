@@ -11,7 +11,7 @@ describe Outfox::Parser do
   end
 
   it "should have correct receiver" do
-    @parser.receiver.class.should == Outfox::Receivers::WachoviaCheckingStatement
+    @parser.receiver.class.should == Outfox::Statements::WachoviaCheckingStatement
   end
 
   describe "parsing messages" do

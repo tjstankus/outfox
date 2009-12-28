@@ -11,3 +11,4 @@ end
 
 FIXTURES_PATH = File.join(File.dirname(__FILE__), 'fixtures') unless defined?(FIXTURES_PATH)
 CONFIG_PATH = File.join(File.dirname(__FILE__), 'config') unless defined?(CONFIG_PATH)
+TMP_PATH = File.join(File.dirname(__FILE__), '..', 'tmp') unless defined?(TMP_PATH)

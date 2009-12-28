@@ -39,6 +39,12 @@ module Outfox
                 xml.BANKTRANLIST {
                   xml.DTSTART datetime_to_ofx(@statement.start_date)
                   xml.DTEND datetime_to_ofx(@statement.end_date)
+                  @statement.transactions.each do |txn|
+                    xml.STMTTRN {
+                      xml.TRNTYPE txn.transaction_type
+                      xml.DTPOSTED datetime_to_ofx(txn.datetime_posted)
+                    }
+                  end
                 }
               }
             }

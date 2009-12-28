@@ -1,10 +1,10 @@
 require File.join(File.dirname(__FILE__), *%w[.. .. spec_helper])
 
-describe Outfox::Receivers::Statement do
+describe Outfox::Statements::Statement do
   
   before(:each) do
     @methods = [ :bank_routing_number, :account_number, :account_type ]
-    @statement = Outfox::Receivers::Statement.new
+    @statement = Outfox::Statements::Statement.new
   end
   
   it "should respond to #bank_routing_number" do

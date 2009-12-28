@@ -1,0 +1,1 @@
+- In statement/receiver, improve performance by parsing lines once through instead of iterating in several different methods.

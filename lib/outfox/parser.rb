@@ -4,7 +4,7 @@ module Outfox
     attr_reader :receiver
     
     def initialize(bank, account_type)
-      klass = "Outfox::Receivers::#{bank.camelize}#{account_type.camelize}Statement"
+      klass = "Outfox::Statements::#{bank.camelize}#{account_type.camelize}Statement"
       @receiver = klass.constantize.new
     end
     
