@@ -20,7 +20,6 @@ describe Outfox::Statements::WachoviaCheckingStatement do
   
   it "should have transactions" do
     @statement.transactions.size.should == 5
-    puts Outfox::OfxGenerator.new(@statement).ofx
   end
   
   it "should have deposits" do

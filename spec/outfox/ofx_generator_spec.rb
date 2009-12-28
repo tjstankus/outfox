@@ -8,7 +8,8 @@ describe Outfox::OfxGenerator do
       :account_number => '1010101234567',
       :account_type => 'checking',
       :start_date => DateTime.parse('2009-09-29'),
-      :end_date => DateTime.parse('2009-10-28') })
+      :end_date => DateTime.parse('2009-10-28'),
+      :transactions => [] })
     @generator = Outfox::OfxGenerator.new(@statement)
     @ofx = @generator.ofx
   end
